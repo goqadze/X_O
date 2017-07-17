@@ -172,7 +172,10 @@ public class Main {
         }));
 
         server.addEventListener("message", String.class, (client, message, ackRequest) -> {
-            getOpponent(client, server).sendEvent("message", message);
+            SocketIOClient opponent = getOpponent(client, server);
+            if (opponent != null) {
+                opponent.sendEvent("message", message);
+            }
         });
 
         server.start();

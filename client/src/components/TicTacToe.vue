@@ -50,7 +50,7 @@
           Chat
         </div>
         <div class="panel-body">
-          <div class="well" style="height: 265px; overflow: auto">
+          <div class="well" style="height: 265px; overflow: auto" ref="chatBlock">
             <div v-for="item in messages">
               <div :class="['alert', item.who == 'me' ? 'alert-warning' : 'alert-info']" role="alert">
                 <strong>{{ item.username | uppercase }}:</strong> {{ item.message }}
@@ -208,6 +208,9 @@
       },
 
       sendMessage() {
+        if (!this.gameStarted)
+          return;
+
         if (!this.message)
           return;
 
@@ -220,6 +223,8 @@
         });
 
         this.message = '';
+
+        this.scrollTopToBottomChat();
       },
 
       drawX(i, j) {
@@ -407,6 +412,7 @@
             'message': message,
             'who': 'her'
           });
+          this.scrollTopToBottomChat();
         });
 
         socket.on('disconnect', () => {
@@ -429,6 +435,10 @@
 
         container.addChild(board);
         app.stage.addChild(container);
+      },
+
+      scrollTopToBottomChat(){
+        this.$nextTick(() => this.$refs.chatBlock.scrollTop = this.$refs.chatBlock.scrollHeight);
       }
     }
   }
