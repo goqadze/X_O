@@ -95,7 +95,7 @@
     Draw: 3,
   };
 
-  let socket = io('http://192.168.1.4:8080');
+  let socket = io('http://127.0.0.1:8080');
 
   export default {
     data() {

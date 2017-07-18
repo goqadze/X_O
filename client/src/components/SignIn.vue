@@ -5,10 +5,9 @@
         <div class="modal-container">
           <div class="modal-header">
             <label for="usr">Name:</label>
-            <input type="text" class="form-control" id="usr" v-model="username" @keyup.enter='signIn'>
+            <input class="form-control" id="usr" v-model="username" @keyup.enter='signIn'>
             <span class="text-danger">{{ errorMessage }}</span>
           </div>
-
           <div class="modal-footer">
             <button class="btn btn-info" @click="signIn">
               OK
@@ -34,10 +33,8 @@
         if (this.username.length < 2) {
           this.errorMessage = 'The username must be at least 2 characters.';
           return;
-        } else {
-          this.errorMessage = '';
         }
-
+        this.errorMessage = '';
         this.$emit('signIn', this.username);
       }
     }

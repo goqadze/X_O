@@ -21,9 +21,7 @@
     name: 'accept-offer',
     props: ['username'],
     data () {
-      return {
-
-      }
+      return {}
     },
     methods : {
       accept (yesOrNo){

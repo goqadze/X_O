@@ -47,5 +47,4 @@
   .orange {
     color: #FFAF0B;
   }
-
 </style>
