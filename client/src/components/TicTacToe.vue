@@ -123,7 +123,8 @@
 
     created() {
       this.notReactiveData = {
-        canMove: false,
+        ackServerCallback: null,
+        filledCells: null,
         board: null,
       };
 
@@ -437,7 +438,7 @@
         app.stage.addChild(container);
       },
 
-      scrollTopToBottomChat(){
+      scrollTopToBottomChat() {
         this.$nextTick(() => this.$refs.chatBlock.scrollTop = this.$refs.chatBlock.scrollHeight);
       }
     }
