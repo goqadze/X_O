@@ -92,7 +92,7 @@
     NONE: 0,
     X: 1,
     O: 2,
-    Draw: 3,
+    DRAW: 3,
   };
 
   let socket = io('http://127.0.0.1:8080');
@@ -389,7 +389,7 @@
               this.showMessage("The winner is " + this.opponent.name + " 'O'");
               this.endGame();
               break;
-            case MoveType.Draw:
+            case MoveType.DRAW:
               this.showMessage("Draw");
               this.endGame();
               break;
