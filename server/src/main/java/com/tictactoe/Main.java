@@ -38,17 +38,17 @@ public class Main {
         server.addDisconnectListener((SocketIOClient client) -> {
             System.out.println(client.get("user_name") + " - disconnected");
 
+            SocketIOClient opponent = getOpponent(client, server);
+            if (opponent != null) {
+                opponent.sendEvent("end_game");
+            }
+
             client.getAllRooms().forEach((roomName) -> {
                 server.getRoomOperations(roomName).getClients().forEach(c -> {
                     c.leaveRoom(roomName);
                 });
                 roomGame.remove(roomName);
             });
-
-            SocketIOClient opponent = getOpponent(client, server);
-            if (opponent != null) {
-                opponent.sendEvent("end_game");
-            }
 
             userSessionIds.remove((UUID) client.get("user_id"));
             updateOnlineUsersList(server);
