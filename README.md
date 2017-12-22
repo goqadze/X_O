@@ -2,7 +2,7 @@
 
 Game between two users
 
-#### Run App:
+#### How to Run App:
 
 ```
 Server: 
@@ -22,4 +22,5 @@ Client:
   * socket.io-client
   * vue
   * pixijs
+  * maven
   
