@@ -4,14 +4,14 @@ Game between two users
 
 #### How to Run App:
 
-```
-Server: 
+```bash
+#Server: 
   cd server
   mvn exec:java
 ```
 
-```
-Client: 
+```bash
+#Client: 
   cd client
   npm install
   npm start
@@ -23,4 +23,3 @@ Client:
   * vue
   * pixijs
   * maven
-  
